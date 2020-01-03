@@ -1,0 +1,357 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: assets/images
+public_folder: /assets/images
+collections:
+  - name: config
+    label: Config
+    files:
+      - name: config
+        label: Config
+        file: _config.yml
+        fields:
+          - widget: string
+            name: name
+            label: Site Name
+            required: false
+          - widget: string
+            name: title
+            label: Site Title
+            required: false
+          - widget: string
+            name: description
+            label: Site Description
+            required: false
+          - widget: image
+            name: logo
+            label: Logo
+            required: false
+          - widget: image
+            name: favicon
+            label: Favicon
+            required: false
+          - widget: string
+            name: baseurl
+            label: Base URL
+            required: false
+          - widget: string
+            name: google_analytics
+            label: Google Analytics Code
+            required: false
+          - widget: string
+            name: disqus
+            label: Disqus
+            required: false
+          - widget: string
+            name: mailchimp-list
+            label: Mailchimp List
+            required: false
+          - widget: list
+            name: include
+            label: Include
+            required: false
+            field:
+              label: String
+              name: string
+              widget: string
+          - widget: string
+            name: permalink
+            label: Permalink
+            required: false
+          - widget: object
+            name: authors
+            label: Authors
+            required: false
+            fields:
+              - widget: object
+                name: sal
+                label: Sal
+                required: false
+                fields:
+                  - widget: string
+                    name: name
+                    label: Author Name
+                    required: false
+                  - widget: string
+                    name: display_name
+                    label: Display Name
+                    required: false
+                  - widget: string
+                    name: gravatar
+                    label: Gravatar
+                    required: false
+                  - widget: string
+                    name: email
+                    label: Email
+                    required: false
+                  - widget: string
+                    name: web
+                    label: Web
+                    required: false
+                  - widget: string
+                    name: twitter
+                    label: Twitter
+                    required: false
+                  - widget: string
+                    name: description
+                    label: Description
+                    required: false
+              - widget: object
+                name: john
+                label: John
+                required: false
+                fields:
+                  - widget: string
+                    name: name
+                    label: Author Name
+                    required: false
+                  - widget: string
+                    name: display_name
+                    label: Display Name
+                    required: false
+                  - widget: image
+                    name: avatar
+                    label: Avatar
+                    required: false
+                  - widget: string
+                    name: gravatar
+                    label: Gravatar
+                    required: false
+                  - widget: string
+                    name: email
+                    label: Email
+                    required: false
+                  - widget: string
+                    name: web
+                    label: Web
+                    required: false
+                  - widget: string
+                    name: twitter
+                    label: Twitter
+                    required: false
+                  - widget: string
+                    name: description
+                    label: Description
+                    required: false
+          - widget: list
+            name: plugins
+            label: Plugins
+            required: false
+            field:
+              label: String
+              name: string
+              widget: string
+          - widget: object
+            name: jekyll-archives
+            label: Jekyll Archives
+            required: false
+            fields:
+              - widget: list
+                name: enabled
+                label: Enabled
+                required: false
+                field:
+                  label: String
+                  name: string
+                  widget: string
+              - widget: string
+                name: layout
+                label: Layout
+                required: false
+              - widget: object
+                name: permalinks
+                label: Permalinks
+                required: false
+                fields:
+                  - widget: string
+                    name: category
+                    label: Category
+                    required: false
+          - widget: number
+            name: paginate
+            label: Paginate
+            required: false
+            valueType: int
+          - widget: string
+            name: paginate_path
+            label: Paginate Path
+            required: false
+          - widget: string
+            name: markdown
+            label: Markdown
+            required: false
+          - widget: object
+            name: kramdown
+            label: Kramdown
+            required: false
+            fields:
+              - widget: string
+                name: input
+                label: Input
+                required: false
+              - widget: string
+                name: syntax_highlighter
+                label: Syntax Highlighter
+                required: false
+              - widget: object
+                name: syntax_highlighter_opts
+                label: Syntax Highlighter Opts
+                required: false
+                fields:
+                  - widget: object
+                    name: block
+                    label: Block
+                    required: false
+                    fields:
+                      - widget: boolean
+                        name: line_numbers
+                        label: Line Numbers
+                        required: false
+          - widget: select
+            name: adsense
+            label: Adsense
+            required: false
+            options:
+              - disabled
+              - enabled
+          - widget: string
+            name: adsense-data-ad-client
+            label: Adsense Data Ad Client
+            required: false
+          - widget: string
+            name: adsense-data-ad-slot
+            label: Adsense Data Ad Slot
+            required: false
+          - widget: select
+            name: lazyimages
+            label: Lazyimages
+            required: false
+            options:
+              - disabled
+              - enabled
+          - widget: list
+            name: exclude
+            label: Exclude
+            required: false
+            field:
+              label: String
+              name: string
+              widget: string
+  - name: home
+    label: Home
+    files:
+      - name: home
+        label: Home
+        file: index.md
+        fields:
+          - widget: string
+            name: layout
+            label: Layout
+            required: false
+          - widget: string
+            name: title
+            label: Title
+            required: false
+          - widget: markdown
+            name: body
+            label: Content
+            required: false
+            hint: Page content
+  - name: basicpage
+    label: Basic Pages
+    folder: _pages
+    create: true
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - widget: string
+        name: layout
+        label: Layout
+        required: false
+      - widget: string
+        name: title
+        label: Title
+        required: false
+      - widget: string
+        name: permalink
+        label: Permalink
+        required: false
+      - widget: boolean
+        name: comments
+        label: Comments
+        required: false
+      - widget: markdown
+        name: body
+        label: Content
+        required: false
+        hint: Page content
+  - name: post
+    label: Postss
+    folder: _posts
+    create: true
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - widget: string
+        name: layout
+        label: Layout
+        required: false
+      - widget: string
+        name: title
+        label: Title
+        required: false
+      - widget: string
+        name: author
+        label: Author
+        required: false
+      - widget: list
+        name: categories
+        label: Categories
+        required: false
+        field:
+          label: String
+          name: string
+          widget: string
+      - widget: list
+        name: tags
+        label: Tags
+        required: false
+        field:
+          label: String
+          name: string
+          widget: string
+      - widget: image
+        name: image
+        label: Image
+        required: false
+      - widget: text
+        name: description
+        label: Description
+        required: false
+      - widget: boolean
+        name: featured
+        label: Featured
+        required: false
+      - widget: boolean
+        name: hidden
+        label: Hidden
+        required: false
+      - widget: number
+        name: rating
+        label: Rating
+        required: false
+        valueType: float
+      - widget: string
+        name: beforetoc
+        label: Before Toc
+        required: false
+      - widget: boolean
+        name: toc
+        label: TOC
+        required: false
+      - widget: markdown
+        name: body
+        label: Content
+        required: false
+        hint: Page content
